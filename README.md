@@ -1,2 +1,13 @@
-# sort-colors
-The program sorts the array using the Dutch National Flag algorithm. It maintains three regions for 0, 1, and 2, and places each element in its correct region using swaps. The array is sorted in one pass without extra space. The solution runs in O(n) time and O(1) space.
+class Solution:
+    def sortColors(self, nums: list[int]) -> None:
+        l = i = 0
+        r = len(nums) - 1
+        while i <= r:
+            if nums[i] == 0:
+                nums[l], nums[i] = nums[i], nums[l]
+                l += 1; i += 1
+            elif nums[i] == 2:
+                nums[i], nums[r] = nums[r], nums[i]
+                r -= 1
+            else:
+                i += 1    
